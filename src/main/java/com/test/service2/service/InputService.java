@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface InputService {
     List<ServiceInput> getServiceData(String serviceName);
+
+    ServiceInput createInput(ServiceInput input);
 }

@@ -19,4 +19,9 @@ public class InputServiceImpl implements InputService {
     public List<ServiceInput> getServiceData(String serviceName) {
         return serviceInputRepository.findAllByServiceName(serviceName);
     }
+
+    @Override
+    public ServiceInput createInput(ServiceInput input) {
+        return serviceInputRepository.save(input);
+    }
 }
