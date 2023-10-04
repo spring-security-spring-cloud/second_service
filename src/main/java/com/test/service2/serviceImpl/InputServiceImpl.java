@@ -1,5 +1,6 @@
 package com.test.service2.serviceImpl;
 
+import com.test.service2.exception.APIException;
 import com.test.service2.model.ServiceInput;
 import com.test.service2.repository.ServiceInputRepository;
 import com.test.service2.service.InputService;
@@ -22,6 +23,11 @@ public class InputServiceImpl implements InputService {
 
     @Override
     public ServiceInput createInput(ServiceInput input) {
-        return serviceInputRepository.save(input);
+        try {
+            return serviceInputRepository.save(input);
+        } catch (Exception e) {
+            throw new APIException("Data not saved!");
+        }
+
     }
 }

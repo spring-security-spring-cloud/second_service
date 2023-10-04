@@ -1,7 +1,7 @@
 package com.test.service2.controller;
 
 import com.test.service2.component.ServiceResponse;
-import com.test.service2.exceptions.DataNotFoundException;
+import com.test.service2.exception.APIException;
 import com.test.service2.model.ServiceInput;
 import com.test.service2.service.InputService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class SecondServiceController {
             return new ResponseEntity<>(new ServiceResponse("data found", inputs), HttpStatus.OK);
         } else {
             //return new ResponseEntity<>(new ServiceResponse("data not found", inputs), HttpStatus.NO_CONTENT);
-            throw new DataNotFoundException("data not found");
+            throw new APIException("Data Not Found!");
         }
     }
 
